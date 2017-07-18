@@ -1,5 +1,8 @@
 # CouchPotato Docker image
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/aelesbao/couchpotato.svg)](https://hub.docker.com/r/aelesbao/couchpotato/)
+[![Docker Stars](https://img.shields.io/docker/stars/aelesbao/couchpotato.svg)](https://hub.docker.com/r/aelesbao/couchpotato/)
+
 [CouchPotato](http://couchpota.to) is an automatic NZB and torrent downloader.
 You can keep a "movies I want"-list and it will search for NZBs/torrents of
 these movies every X hours. Once a movie is found, it will send it to SABnzbd
