@@ -18,6 +18,7 @@ RUN addgroup couchpotato && adduser -G couchpotato -D -h /opt/couchpotato couchp
 # Install run dependencies
 RUN apk add --no-cache --virtual .run-deps \
       git \
+      unrar \
       su-exec \
       openssl \
       py2-pip \
