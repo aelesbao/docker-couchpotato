@@ -10,9 +10,9 @@ or download the torrent to a specified directory.
 
 ## Docker image
 
-The image is based on Alpine Linux 3.6 and uses Python 2.7. It installs
-CouchPotato `build/3.0.1` tag, but it is possible to change the git-ref at
-build time using a special argument.
+The image is based on Alpine Linux 3.6 and uses Python 2.7. It clones
+CouchPotatoServer `master` branch, but it is possible to change the `git-ref`
+at build time using a special argument.
 
 ### Build
 
@@ -20,10 +20,10 @@ build time using a special argument.
 docker build -t aelesbao/couchpotato .
 ```
 
-To use a different Github commit when building the image:
+To use a different git branch or tag when building the image:
 
 ```
-docker build --build-arg git_ref=master -t aelesbao/couchpotato .
+docker build --build-arg git_ref=build/3.0.1 -t aelesbao/couchpotato:3.0.1 .
 ```
 
 ### Run

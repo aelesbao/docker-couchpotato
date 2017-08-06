@@ -17,6 +17,7 @@ RUN addgroup couchpotato && adduser -G couchpotato -D -h /opt/couchpotato couchp
 
 # Install run dependencies
 RUN apk add --no-cache --virtual .run-deps \
+      git \
       su-exec \
       openssl \
       py2-pip \
@@ -26,16 +27,10 @@ RUN apk add --no-cache --virtual .run-deps \
       py2-packaging
 
 # Install CouchPotato
-ARG git_ref="build/3.0.1"
+ARG git_ref="master"
 RUN set -ex \
-  && apk add --no-cache --virtual .build-deps \
-      wget \
-      tar \
-  && wget --no-check-certificate -O /tmp/couchpotato.tar.gz "https://github.com/CouchPotato/CouchPotatoServer/archive/${git_ref}.tar.gz" \
-  && mkdir ./server ./data ./downloads ./movies \
-  && tar -zxvf /tmp/couchpotato.tar.gz -C ./server --strip-components=1 \
-  && rm -rf /tmp/* \
-  && apk del .build-deps
+  && git clone --depth 1 -b ${git_ref} https://github.com/CouchPotato/CouchPotatoServer ./server \
+  && mkdir ./data ./downloads ./movies
 
 ENV PATH /opt/couchpotato/server:$PATH
 
